@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DummyHotelBooking Demo</title>
+    <link rel="stylesheet" href="https://unpkg.com/buefy/dist/buefy.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.8.55/css/materialdesignicons.min.css">
+    <style>
+
+.spacer-left {
+  margin-left:15px;
+  padding-left:15px;
+  border-left: solid 1px grey;
+}
+.image.map {
+  width: 256px;
+  height: 108px;
+  padding: 8px;
+  background-color: white;
+  border: solid 1px grey;
+}
+
+    </style>
+  </head>
+  <body>
+
+  <header class="spacer-bottom">
+    <div class="container level py-3">
+      <div class="level-left">
+        <div class="level-item">
+          <img src="https://matarillo.sakura.ne.jp/enability/sitelogo.png" alt="">
+        </div>
+      </div>
+      <div class="level-right">
+        <div class="level-item">
+          <button class="button is-primary">Create accouont</button>
+        </div>
+        <div class="level-item">
+          <button class="button is-primary">Sign in</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <section class="hero is-light">
+    <div class="hero-body">
+      <div class="container level">
+        <div class="level-left">
+          <div class="level-item">
+            <div class="is-size-5">
+              <h2 class="is-size-3">Honolulu, HI, USA</h2>
+              <p>Nov 27 - Dec 22, 2020</p>
+              <p>25 nights, 1 room, 1 adult</p>
+            </div>
+          </div>
+        </div>
+        <div class="level-right">
+          <div class="level-item">
+            <figure class="image map">
+              <img class="" src="https://demos.devexpress.com/rwa/dxhotels/Content/Maps/Honolulu.png" alt="">
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section" id="app">
+    <div class="block container">
+      <h1 class="title">
+        <span class="has-text-warning">RESULTS</span>
+        <span class="has-text-grey">9 HOTELS</span>
+      </h1>
+      <div class="tags">
+        <span class="tag is-warning">Los Angeles, CA, USA<button class="delete is-small"></button></span>
+      </div>
+    </div>
+
+
+    <div class="container">
+    <div class="columns">
+      <main class="column is-two-thirds">
+        <article class="block">
+        <div class="block media">
+          <figure class="media-left">
+            <p class="image is-128x128 is-5by3">
+              <img src="https://demos.devexpress.com/rwa/dxhotels/Content/Pictures/LA-0.jpg">
+            </p>
+          </figure>
+          <div class="media-content">
+            <div class="content">
+              <p><span class="title is-5">Venice Walk Hotel</span><br>18 Venice Blvd.<br>Venice, CA 90010, USA</p>
+              <p>
+                <span>TYPE: Gold</span>
+                <span>LOCATION: A</span>
+                <span>RATING: 4</span><span class="icon has-text-warning"><i class="mdi mdi-star"></i></span>
+              </p>
+              <b-rate spaced v-bind:value="4" disabled></b-rate>
+            </div>
+          </div>
+          <div class="media-right has-text-centered">
+            <p><span class="is-size-2">$299.99</span><br><span>per night</span></p><br><b-button type="is-primary" size="is-medium">Book it</b-button>
+          </div>
+        </div>
+        <div class="block">
+          <p>Experience the amazing Pacific Ocean and the Venice Boardwalk. From muscle beach to the countless interesting street performers, there is something in Venice for everyone. Newly renovated rooms include flatscreen televisions. Book today. </p>
+        </div>
+        </article>
+
+        <article class="block">
+        <div class="block media">
+          <figure class="media-left">
+            <p class="image is-128x128 is-5by3">
+              <img src="https://demos.devexpress.com/rwa/dxhotels/Content/Pictures/LA-0.jpg">
+            </p>
+          </figure>
+          <div class="media-content">
+            <div class="content">
+              <p><span class="title is-5">Venice Walk Hotel</span><br>18 Venice Blvd.<br>Venice, CA 90010, USA</p>
+              <p>
+                <span>TYPE: Gold</span>
+                <span>LOCATION: A</span>
+                <span>RATING: 4</span><span class="icon has-text-warning"><i class="mdi mdi-star"></i></span>
+              </p>
+              <b-rate spaced v-bind:value="4" disabled></b-rate>
+            </div>
+          </div>
+          <div class="media-right has-text-centered">
+            <p><span class="is-size-2">$299.99</span><br><span>per night</span></p><br><b-button type="is-primary" size="is-medium">Book it</b-button>
+          </div>
+        </div>
+        <div class="block">
+          <p>Experience the amazing Pacific Ocean and the Venice Boardwalk. From muscle beach to the countless interesting street performers, there is something in Venice for everyone. Newly renovated rooms include flatscreen televisions. Book today. </p>
+        </div>
+        </article>
+
+        <article class="block">
+        <div class="block media">
+          <figure class="media-left">
+            <p class="image is-128x128 is-5by3">
+              <img src="https://demos.devexpress.com/rwa/dxhotels/Content/Pictures/LA-0.jpg">
+            </p>
+          </figure>
+          <div class="media-content">
+            <div class="content">
+              <p><span class="title is-5">Venice Walk Hotel</span><br>18 Venice Blvd.<br>Venice, CA 90010, USA</p>
+              <p>
+                <span>TYPE: Gold</span>
+                <span>LOCATION: A</span>
+                <span>RATING: 4</span><span class="icon has-text-warning"><i class="mdi mdi-star"></i></span>
+              </p>
+              <b-rate spaced v-bind:value="4" disabled></b-rate>
+            </div>
+          </div>
+          <div class="media-right has-text-centered">
+            <p><span class="is-size-2">$299.99</span><br><span>per night</span></p><br><b-button type="is-primary" size="is-medium">Book it</b-button>
+          </div>
+        </div>
+        <div class="block">
+          <p>Experience the amazing Pacific Ocean and the Venice Boardwalk. From muscle beach to the countless interesting street performers, there is something in Venice for everyone. Newly renovated rooms include flatscreen televisions. Book today. </p>
+        </div>
+        </article>
+
+        <hr>
+        <b-pagination
+            v-bind:total="9"
+            v-bind:per-page="3"
+            v-bind:range-before="2"
+            v-bind:range-after="2"
+            size="is-small"
+            aria-next-label="Next page"
+            aria-previous-label="Previous page"
+            aria-page-label="Page"
+            aria-current-label="Current page">
+        </b-pagination>
+
+      </main>
+      <aside class="column">
+
+  <div class="box has-background-light">
+
+    <b-field label="Search By City" message="You can have a message too">
+      <b-dropdown aria-role="list" expanded scrollable>
+        <button class="button is-fullwidth" slot="trigger">
+          <span>Dropdown button</span>
+          <span style="margin-left: auto;" class="icon is-small"><i class="mdi mdi-arrow-down-drop-circle" aria-hidden="true"></i></span>
+        </button>
+        <b-dropdown-item aria-role="listitem">Action</b-dropdown-item>
+        <b-dropdown-item aria-role="listitem">Another action</b-dropdown-item>
+        <b-dropdown-item aria-role="listitem">Something else</b-dropdown-item>
+      </b-dropdown>
+    </b-field>
+
+
+    <b-field label="Nightly Rate" message="You can have a message too">
+      <div class="input">
+        <b-slider class="mx-3" :value="[100,999]" :min="100" :max="999" :step="1" indicator :tooltip="false" :custom-formatter="val => '$' + val"></b-slider>
+      </div>
+    </b-field>
+
+
+    <b-field label="Customer Rating" message="You can have a message too">
+      <div class="input">
+        <b-slider class="mx-3" :value="1" :min="1" :max="5" :step="1" indicator :tooltip="false"></b-slider>
+      </div>
+    </b-field>
+
+
+    <b-field label="Our Rating" message="You can have a message too">
+      <div class="box">
+        <div class="field"><b-checkbox><span class="icon has-text-warning"><i class="mdi mdi-star mdi-24px"></i></span><span class="icon has-text-warning"><i class="mdi mdi-star mdi-24px"></i></span><span class="icon has-text-warning"><i class="mdi mdi-star mdi-24px"></i></span><span class="icon has-text-warning"><i class="mdi mdi-star mdi-24px"></i></span><span class="icon has-text-warning"><i class="mdi mdi-star mdi-24px"></i></span></b-checkbox></div>
+        <div class="field"><b-checkbox><span class="icon has-text-warning"><i class="mdi mdi-star mdi-24px"></i></span><span class="icon has-text-warning"><i class="mdi mdi-star mdi-24px"></i></span><span class="icon has-text-warning"><i class="mdi mdi-star mdi-24px"></i></span><span class="icon has-text-warning"><i class="mdi mdi-star mdi-24px"></i></span></b-checkbox></div>
+        <div class="field"><b-checkbox><span class="icon has-text-warning"><i class="mdi mdi-star mdi-24px"></i></span><span class="icon has-text-warning"><i class="mdi mdi-star mdi-24px"></i></span><span class="icon has-text-warning"><i class="mdi mdi-star mdi-24px"></i></span></b-checkbox></div>
+        <div class="field"><b-checkbox><span class="icon has-text-warning"><i class="mdi mdi-star mdi-24px"></i></span><span class="icon has-text-warning"><i class="mdi mdi-star mdi-24px"></i></span></b-checkbox></div>
+        <div class="field"><b-checkbox><span class="icon has-text-warning"><i class="mdi mdi-star mdi-24px"></i></span></b-checkbox></div>
+      </div>
+    </b-field>
+
+
+    <b-field label="Location" message="You can have a message too">
+      <b-dropdown aria-role="list" expanded scrollable>
+        <button class="button is-fullwidth" slot="trigger">
+          <span>Dropdown button</span>
+          <span style="margin-left: auto;" class="icon is-small"><i class="mdi mdi-arrow-down-drop-circle" aria-hidden="true"></i></span>
+        </button>
+        <b-dropdown-item aria-role="listitem">AAA</b-dropdown-item>
+        <b-dropdown-item aria-role="listitem">AA</b-dropdown-item>
+        <b-dropdown-item aria-role="listitem">A</b-dropdown-item>
+        <b-dropdown-item aria-role="listitem">BBB</b-dropdown-item>
+      </b-dropdown>
+    </b-field>
+
+    <b-button type="is-primary" expanded>Apply</b-button>
+  </div>
+
+      </aside>
+    </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <section class="has-background-light">
+      <div class="container">
+        <div class="columns py-4 has-text-grey is-size-6">
+          <div class="column">
+            <h3 class="title is-6">Help</h3>
+            <p>Contact us</p>
+            <p>FAQs</p>
+            <p>Privacy & Cooloe policy</p>
+            <p>Terms of use</p>
+          </div>
+          <div class="column spacer-left">
+            <h3 class="title is-6">About DummyHotelBooking</h3>
+            <p>About us</p>
+            <p>Press center</p>
+            <p>Corporate contact</p>
+          </div>
+          <div class="column spacer-left">
+            <h3 class="title is-6">Follow us</h3>
+            <div class="level">
+              <div class="level-item">
+                <figure class="image is-48x48">
+                  <img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/twitter.svg">
+                </figure>
+              </div>
+              <div class="level-item">
+                <figure class="image is-48x48">
+                  <img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/instagram.svg">
+                </figure>
+              </div>
+              <div class="level-item">
+                <figure class="image is-48x48">
+                  <img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/facebook.svg">
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="has-background-primary">
+      <div class="container level py-3 has-text-white is-size-5">
+        <div class="level-left">
+          <div class="level-item">
+            <div>
+              <p>This website demonstrates use of Buefy. Hotel rooms cannot be booked using this website.</p>
+            </div>
+          </div>
+        </div>
+        <div class="level-right">
+          <div class="level-item">
+            <a href="https://buefy.org/"><img src="https://buefy.org/static/img/buefy-light.7df103a.png" width="90" height="35" alt=""></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </footer>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/buefy/dist/buefy.min.js"></script>
+    <script>
+      const app = new Vue({el: '#app'});
+    </script>
+  </body>
+</html>

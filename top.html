@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DummyHotelBooking Demo</title>
+    <link rel="stylesheet" href="https://unpkg.com/buefy/dist/buefy.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.8.55/css/materialdesignicons.min.css">
+    <style>
+
+.spacer-left {
+  margin-left:15px;
+  padding-left:15px;
+  border-left: solid 1px grey;
+}
+.banner-index {
+  background-image: url("https://images.unsplash.com/photo-1545579133-99bb5ab189bd");
+  background-position: center;
+  background-size: cover;
+  background-blend-mode: soft-light;
+}
+.is-transparent {
+  background-color: rgba(255,255,255,0.8);
+}
+
+    </style>
+  </head>
+  <body>
+<div id="app">
+
+  <header class="spacer-bottom">
+    <div class="container level py-3">
+      <div class="level-left">
+        <div class="level-item">
+          <img src="https://matarillo.sakura.ne.jp/enability/sitelogo.png" alt="">
+        </div>
+      </div>
+      <div class="level-right">
+        <div class="level-item">
+          <button class="button is-primary">Create accouont</button>
+        </div>
+        <div class="level-item">
+          <button class="button is-primary">Sign in</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <section class="hero is-dark banner-index">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-two-fifths">
+            <div class="box is-transparent">
+              <h3 class="is-6 has-text-centered has-text-warning-dark">Hotel Search</h3>
+
+              <div class="columns">
+                <div class="column field">
+                  <label class="label is-small">Location</label>
+                  <b-dropdown aria-role="list" v-model="location" expanded scrollable>
+                    <div class="control has-icons-right" slot="trigger">
+                      <input type="text" class="input is-small" placeholder="Select Location" :value="location.name" readonly required />
+                      <span class="icon is-right"><i class="mdi mdi-arrow-down-drop-circle"></i></span>
+                    </div>
+                    <b-dropdown-item 
+                      v-for="(loc, index) in locations"
+                      :key="index"
+                      :value="loc" aria-role="listitem">
+                      <div class="columns is-size-7">
+                        <div class="column">
+                          <p>{{loc.city}}</p>
+                        </div>
+                        <div class="column">
+                          <p>{{loc.country}}</p>
+                        </div>
+                        <div class="column has-text-right">
+                          <p>{{loc.hotels}} hotels</p>
+                        </div>
+                      </div>
+                    </b-dropdown-item>
+                </div>
+              </div>
+
+              <div class="columns">
+                <div class="column field">
+                  <label class="label is-small">Check in</label>
+                  <b-datepicker
+                    size="is-small"
+                    v-model="startDate"
+                    :max-date="endDate"
+                    :events="events"
+                    indicators="bars"
+                    required>
+                  </b-datepicker>
+                  <p class="help">{{startDayOfWeek}}</p>
+                </div>
+                <div class="column field">
+                  <label class="label is-small">Check out</label>
+                  <b-datepicker
+                    size="is-small"
+                    v-model="endDate"
+                    :min-date="startDate"
+                    :events="events"
+                    indicators="bars"
+                    required>
+                  </b-datepicker>
+                  <p class="help">{{endDayOfWeek}}</p>
+                </div>
+                <div class="column is-2 field">
+                  <label class="label is-small">&#8203;</label>
+                  <div class="input is-static is-small">{{nights}}</div>
+                  <p class="help">Night(s)</p>
+                </div>
+              </div>
+
+              <div class="columns">
+                <div class="column field">
+                  <label class="label is-small">Rooms</label>
+                  <div class="control">
+                    <div class="select is-small is-fullwidth">
+                      <select>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="column field">
+                  <label class="label is-small">Adults</label>
+                  <div class="control">
+                    <div class="select is-small is-fullwidth">
+                      <select>
+                        <option>1</option>
+                        <option selected>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                        <option>13</option>
+                        <option>14</option>
+                        <option>15</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="column field">
+                  <label class="label is-small">Children</label>
+                  <div class="control">
+                    <div class="select is-small is-fullwidth">
+                      <select>
+                        <option>0</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="columns">
+                <div class="column control">
+                  <button class="button is-primary is-fullwidth is-small" v-on:click="onSearch">Search</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="column auto">
+            <div class="content has-text-right">
+              <h1 class="title is-1">Dummy Hotel Booking</h1>
+              <h2 class="subtitle is-4">powered by Buefy</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <section class="has-background-light">
+      <div class="container">
+        <div class="columns py-4 has-text-grey is-size-6">
+          <div class="column">
+            <h3 class="title is-6">Help</h3>
+            <p>Contact us</p>
+            <p>FAQs</p>
+            <p>Privacy & Cooloe policy</p>
+            <p>Terms of use</p>
+          </div>
+          <div class="column spacer-left">
+            <h3 class="title is-6">About DummyHotelBooking</h3>
+            <p>About us</p>
+            <p>Press center</p>
+            <p>Corporate contact</p>
+          </div>
+          <div class="column spacer-left">
+            <h3 class="title is-6">Follow us</h3>
+            <div class="level">
+              <div class="level-item">
+                <figure class="image is-48x48">
+                  <img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/twitter.svg">
+                </figure>
+              </div>
+              <div class="level-item">
+                <figure class="image is-48x48">
+                  <img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/instagram.svg">
+                </figure>
+              </div>
+              <div class="level-item">
+                <figure class="image is-48x48">
+                  <img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/facebook.svg">
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="has-background-primary">
+      <div class="container level py-3 has-text-white is-size-5">
+        <div class="level-left">
+          <div class="level-item">
+            <div>
+              <p>This website demonstrates use of Buefy. Hotel rooms cannot be booked using this website.</p>
+            </div>
+          </div>
+        </div>
+        <div class="level-right">
+          <div class="level-item">
+            <a href="https://buefy.org/"><img src="https://buefy.org/static/img/buefy-light.7df103a.png" width="90" height="35" alt=""></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </footer>
+
+</div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/buefy/dist/buefy.min.js"></script>
+    <script>
+      function createDate(base, offsetDays = 0) {
+        return new Date(base.getFullYear(), base.getMonth(), base.getDate() + offsetDays);
+      }
+      function getDayOfWeek(date, locale = 'en-US') {
+        return new Intl.DateTimeFormat(locale, {weekday:'long'}).format(date);
+      }
+      const model = {
+        data() {
+          return {
+            selectedLocation: null,
+            location: '',
+            locations: [
+              {name: 'Hamburg, Germany', city: 'Hamburg', country: 'Germany', hotels: 4},
+              {name: 'Honolulu, HI, USA', city: 'Honolulu', country: 'USA', hotels: 9},
+              {name: 'Las Vegas, NV, USA', city: 'Las Vegas', country: 'USA', hotels: 9},
+              {name: 'London, United Kingdom', city: 'London', country: 'United Kingdom', hotels: 6},
+              {name: 'Los Angeles, CA, USA', city: 'Los Angeles', country: 'USA', hotels: 9},
+              {name: 'Nassau, Bahamas', city: 'Nassau', country: 'Bahamas', hotels: 9},
+              {name: 'New York City, NY, USA', city: 'New York City', country: 'USA', hotels: 9},
+              {name: 'Paris, France', city: 'Paris', country: 'France', hotels: 6},
+              {name: 'Rome, Italy', city: 'Rome', country: 'Italy', hotels: 6},
+              {name: 'San Francisco, CA, USA', city: 'San Francisco', country: 'USA', hotels: 9},
+            ],
+            startDate: createDate(new Date()),
+            endDate: createDate(new Date(), 2),
+          }
+        },
+        computed: {
+          filteredLocations() {
+            return this.locations.filter(option => {
+              return (
+                option.name
+                      .toString()
+                      .toLowerCase()
+                      .indexOf(this.location.toLowerCase()) >= 0
+              )
+            })
+          },
+          events() {
+            const array = [];
+            for (let d = createDate(this.startDate); d <= this.endDate; d = createDate(d, 1)) {
+              array.push(d);
+            }
+            return array;
+          },
+          startDayOfWeek() {
+            return getDayOfWeek(this.startDate);
+          },
+          endDayOfWeek() {
+            return getDayOfWeek(this.endDate);
+          },
+          nights() {
+            const sms = this.startDate.valueOf() + (1000 * 60 * this.startDate.getTimezoneOffset());
+            const ems = this.endDate.valueOf() + (1000 * 60 * this.endDate.getTimezoneOffset());
+            return Math.floor((ems - sms) / (1000 * 60 * 60 * 24));
+          }
+        },
+        methods: {
+          onSearch() {
+            console.log(JSON.stringify(this.location));
+          }
+        }
+      };
+      const app = new Vue(model);
+      app.$mount('#app');
+    </script>
+  </body>
+</html>

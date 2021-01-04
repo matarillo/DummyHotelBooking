@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DummyHotelBooking Demo</title>
+    <link rel="stylesheet" href="https://unpkg.com/buefy/dist/buefy.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.8.55/css/materialdesignicons.min.css">
+    <style>
+
+.spacer-left {
+  margin-left:15px;
+  padding-left:15px;
+  border-left: solid 1px grey;
+}
+.carousel-item .image img {
+  height: 666px;
+  object-fit: cover;
+}
+.carousel-list .image img {
+  height: 140px;
+  object-fit: cover;
+}
+
+    </style>
+  </head>
+  <body>
+<div id="app">
+
+  <header class="spacer-bottom">
+    <div class="container level py-3">
+      <div class="level-left">
+        <div class="level-item">
+          <img src="https://matarillo.sakura.ne.jp/enability/sitelogo.png" alt="">
+        </div>
+      </div>
+      <div class="level-right">
+        <div class="level-item">
+          <button class="button is-primary">Create accouont</button>
+        </div>
+        <div class="level-item">
+          <button class="button is-primary">Sign in</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <section class="hero is-light">
+    <div class="hero-body">
+      <div class="container level">
+        <div class="level-left">
+          <div class="level-item is-size-5">
+            <div>
+              <div>
+                <h2 class="is-size-3 is-inline-block">Venice Walk Hotel</h2>
+                <div class="is-inline-block">
+                  <b-rate spaced :value="4" disabled></b-rate>
+                </div>
+              </div>
+              <p>18 Venice Blvd.</p>
+              <p>Venice, CA 90010, USA</p>
+            </div>
+          </div>
+        </div>
+        <div class="level-right">
+          <div class="level-item is-size-5">
+            <div class="has-text-right">
+              <p>Dec 29 - Dec 31, 2020</p>
+              <p>2 nights, 1 room, 1 adult</p>
+              <b-dropdown append-to-body aria-role="menu" trap-focus position="is-bottom-left">
+                <button
+                  class="button is-primary"
+                  slot="trigger">
+                  <span>Change Search</span><b-icon icon="menu-down"></b-icon>
+                </button>
+                <b-dropdown-item
+                  aria-role="menu-item"
+                  :focusable="false"
+                  custom
+                  paddingless>
+                          <form action="">
+                            <div class="modal-card" style="width:300px;">
+                              <section class="modal-card-body">
+                                <b-field label="Email">
+                                  <b-input type="email" placeholder="Your email" required></b-input>
+                                </b-field>
+                                <b-field label="Password">
+                                  <b-input type="password" password-reveal placeholder="Your password" required></b-input>
+                                </b-field>
+                                <b-checkbox>Remember me</b-checkbox>
+                              </section>
+                              <footer class="modal-card-foot">
+                                <button class="button is-primary">Login</button>
+                              </footer>
+                            </div>
+                          </form>
+                </b-dropdown-item>
+              </b-dropdown>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container">
+      <div class="columns">
+        <main class="column is-two-thirds">
+          <b-carousel>
+            <b-carousel-item v-for="(image, i) in images" :key="i">
+              <span class="image">
+                <img :src="image.image" :title="image.title">
+              </span>
+            </b-carousel-item>
+          </b-carousel>
+        </main>
+        <aside class="column">
+          <div class="content">
+            <h3 class="is-size-5">What our guests say...</h3>
+            <hr>
+            <p>Some amazing performers at the Boardwalk. Had a blast watching the people from my room. The maids are a bit slow.</p>
+            <p>Feb 21, 2014</p>
+            <b-rate spaced :value="4" disabled></b-rate>
+            <hr>
+            <p>I checked-in early and they did not have my room ready. They made me wait 2 hours. They were not the friendliest staff.</p>
+            <p>Mar 4, 2014</p>
+            <b-rate spaced :value="3" disabled></b-rate>
+            <hr>
+            <p>I have mixed feelings about this place. I might come back but there was a funny odor in my room and Im not sure why.</p>
+            <p>Mar 14, 2014</p>
+            <b-rate spaced :value="4.5" disabled></b-rate>
+            <hr>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="content">
+        <h3 class="is-size-5">Description</h3>
+        <p>Experience the amazing Pacific Ocean and the Venice Boardwalk. From muscle beach to the countless interesting street performers, there is something in Venice for everyone. Newly renovated rooms include flatscreen televisions. Book today.</p>
+      </div>
+
+      <div class="columns">
+        <div class="column is-3 content">
+          <h3 class="is-size-5">Features</h3>
+          <p>Concierge</p>
+          <p>Restaurant</p>
+          <p>Fitness Center</p>
+          <p>Sauna</p>
+          <p>Bar/Lounge</p>
+          <p>Ironing Board</p>
+        </div>
+        <div class="column is-3 content">
+          <h3 class="is-size-5">Rooms</h3>
+          <p>Buffet Breakfast</p>
+          <p>Turndown Svc</p>
+          <p>Fitness Center</p>
+          <p>Premium Bedding</p>
+          <p>Flatscreen TV</p>
+          <p>MiniBar</p>
+        </div>
+        <div class="column is-3 content">
+          <h3 class="is-size-5">Location</h3>
+          <p>Airport shuttle (available 24 hours)</p>
+          <p>Cruise terminal shuttle</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <b-collapse class="card" animation="slide" v-for="(room, index) of rooms"
+        :key="index" :open="selectedIndex == index" @open="selectedIndex = index" @close="selectedIndex = -1">
+        <div class="card-header level p-3" slot="trigger" role="button">
+          <div class="level-left">
+            <div class="level-item">
+              <b-icon
+                :icon="selectedIndex == index ? 'arrow-down-drop-circle-outline' : 'arrow-right-drop-circle-outline'"
+                size="is-medium">
+              </b-icon>
+            </div>
+            <div class="level-item">
+              <p class="is-size-3">{{ room.name }}</p>
+            </div>
+          </div>
+          <div class="level-right">
+            <div class="level-item ml-6">
+              <div>
+                <p class="is-size-5">LOWEST PRICE</p>
+                <p class="is-size-6">available on 12/28/2020</p>
+              </div>
+            </div>
+            <div class="level-item ml-6">
+              <p class="is-size-2">{{ room.price }}</p>
+            </div>
+            <div class="level-item ml-6">
+              <b-button type="is-primary" size="is-medium">Book It</b-button>
+            </div>
+          </div>
+        </div>
+        <div class="card-content has-background-light">
+          <p>{{ room.description }}</p>
+          <div class="columns">
+            <div class="column is-8">
+              <b-carousel-list
+                v-model="room.imageIndex"
+                :data="room.images"
+                :arrow="true"
+                :arrow-hover="true"
+                :items-to-show="4"
+                :items-to-list="1"
+                :repeat="false"
+                :has-drag="true" />
+            </div>
+            <div class="column is-4">
+              <div class="tile is-ancestor">
+                <div class="tile is-parent">
+                  <div class="tile is-child">
+                    <p><span class="icon is-small"><i class="mdi mdi-coffee"></i></span> Buffet Breakfast</p>
+                  </div>
+                </div>
+                <div class="tile is-parent">
+                  <div class="tile is-child">
+                    <p><span class="icon is-small"><i class="mdi mdi-heart"></i></span> Turndown Svc</p>
+                  </div>
+                </div>
+              </div>
+              <div class="tile is-ancestor">
+                <div class="tile is-parent">
+                  <div class="tile is-child">
+                    <p><span class="icon is-small"><i class="mdi mdi-weight-lifter"></i></span> Fitness Center</p>
+                  </div>
+                </div>
+                <div class="tile is-parent">
+                  <div class="tile is-child">
+                    <p><span class="icon is-small"><i class="mdi mdi-bed-empty"></i></span> Premium Bedding</p>
+                  </div>
+                </div>
+              </div>
+              <div class="tile is-ancestor">
+                <div class="tile is-parent">
+                  <div class="tile is-child">
+                    <p><span class="icon is-small"><i class="mdi mdi-television"></i></span> Flatscreen TV</p>
+                  </div>
+                </div>
+                <div class="tile is-parent">
+                  <div class="tile is-child">
+                    <p><span class="icon is-small"><i class="mdi mdi-fridge"></i></span> MiniBar</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </b-collapse>
+
+    </div>
+  </section>
+
+
+  <footer>
+    <section class="has-background-light">
+      <div class="container">
+        <div class="columns py-4 has-text-grey is-size-6">
+          <div class="column">
+            <h3 class="title is-6">Help</h3>
+            <p>Contact us</p>
+            <p>FAQs</p>
+            <p>Privacy & Cooloe policy</p>
+            <p>Terms of use</p>
+          </div>
+          <div class="column spacer-left">
+            <h3 class="title is-6">About DummyHotelBooking</h3>
+            <p>About us</p>
+            <p>Press center</p>
+            <p>Corporate contact</p>
+          </div>
+          <div class="column spacer-left">
+            <h3 class="title is-6">Follow us</h3>
+            <div class="level">
+              <div class="level-item">
+                <figure class="image is-48x48">
+                  <img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/twitter.svg">
+                </figure>
+              </div>
+              <div class="level-item">
+                <figure class="image is-48x48">
+                  <img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/instagram.svg">
+                </figure>
+              </div>
+              <div class="level-item">
+                <figure class="image is-48x48">
+                  <img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/facebook.svg">
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="has-background-primary">
+      <div class="container level py-3 has-text-white is-size-5">
+        <div class="level-left">
+          <div class="level-item">
+            <div>
+              <p>This website demonstrates use of Buefy. Hotel rooms cannot be booked using this website.</p>
+            </div>
+          </div>
+        </div>
+        <div class="level-right">
+          <div class="level-item">
+            <a href="https://buefy.org/"><img src="https://buefy.org/static/img/buefy-light.7df103a.png" width="90" height="35" alt=""></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </footer>
+
+</div>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/buefy/dist/buefy.min.js"></script>
+    <script>
+      const model = {
+        data() {
+          return {
+            carousels: [
+              { text: 'Slide 1', color: 'primary' },
+              { text: 'Slide 2', color: 'info' },
+              { text: 'Slide 3', color: 'success' },
+              { text: 'Slide 4', color: 'warning' },
+              { text: 'Slide 5', color: 'danger' }
+            ],
+            images: [
+              { title: 'LA-0', image: 'https://demos.devexpress.com/rwa/dxhotels/Content/Pictures/LA-0.jpg' },
+              { title: 'Restaurant-0', image: 'https://demos.devexpress.com/rwa/dxhotels/Content/Pictures/Restaurant-0.jpg' },
+              { title: 'Restaurant-19', image: 'https://demos.devexpress.com/rwa/dxhotels/Content/Pictures/Restaurant-19.jpg' },
+              { title: 'Lobby-21', image: 'https://demos.devexpress.com/rwa/dxhotels/Content/Pictures/Lobby-21.jpg' },
+              { title: 'Lobby-31', image: 'https://demos.devexpress.com/rwa/dxhotels/Content/Pictures/Lobby-31.jpg' },
+              { title: 'MeetingRoom-2', image: 'https://demos.devexpress.com/rwa/dxhotels/Content/Pictures/MeetingRoom-2.jpg' },
+              { title: 'MeetingRoom-5', image: 'https://demos.devexpress.com/rwa/dxhotels/Content/Pictures/MeetingRoom-5.jpg' },
+              { title: 'Bedroom-1-0', image: 'https://demos.devexpress.com/rwa/dxhotels/Content/Pictures/Bedroom-1-0.jpg' },
+              { title: 'Bedroom-1-9', image: 'https://demos.devexpress.com/rwa/dxhotels/Content/Pictures/Bedroom-1-9.jpg' },
+              { title: 'Bedroom-1-7', image: 'https://demos.devexpress.com/rwa/dxhotels/Content/Pictures/Bedroom-1-7.jpg' },
+              { title: 'Room-0', image: 'https://demos.devexpress.com/rwa/dxhotels/Content/Pictures/Room-0.jpg' }
+            ],
+            selectedIndex: 0,
+            rooms: [
+              {
+                name: 'Single',
+                description: 'Best Value Single Bed Room',
+                price: '$299.99',
+                imageIndex: 0,
+                images: [
+                  { title: 'Bedroom-1-0', image: 'https://demos.devexpress.com/rwa/dxhotels/Content/Pictures/Bedroom-1-0.jpg' },
+                  { title: 'Bedroom-1-9', image: 'https://demos.devexpress.com/rwa/dxhotels/Content/Pictures/Bedroom-1-9.jpg' },
+                  { title: 'Bedroom-1-7', image: 'https://demos.devexpress.com/rwa/dxhotels/Content/Pictures/Bedroom-1-7.jpg' },
+                  { title: 'Room-0', image: 'https://demos.devexpress.com/rwa/dxhotels/Content/Pictures/Room-0.jpg' },
+                  { title: 'Bathroom-7', image: 'https://demos.devexpress.com/rwa/dxhotels/Content/Pictures/Bathroom-7.jpg' },
+                ]
+              },
+              {
+                name: 'Double',
+                description: 'Best Value with 2 Beds',
+                price: '$312.99',
+                imageIndex: 0,
+                images: [
+                  { title: 'Bedroom-1-0', image: 'https://demos.devexpress.com/rwa/dxhotels/Content/Pictures/Bedroom-1-0.jpg' },
+                  { title: 'Bedroom-1-9', image: 'https://demos.devexpress.com/rwa/dxhotels/Content/Pictures/Bedroom-1-9.jpg' },
+                  { title: 'Bedroom-1-7', image: 'https://demos.devexpress.com/rwa/dxhotels/Content/Pictures/Bedroom-1-7.jpg' },
+                  { title: 'Room-0', image: 'https://demos.devexpress.com/rwa/dxhotels/Content/Pictures/Room-0.jpg' },
+                  { title: 'Bathroom-7', image: 'https://demos.devexpress.com/rwa/dxhotels/Content/Pictures/Bathroom-7.jpg' },
+                ]
+              }
+            ]
+          }
+        }
+      };
+      const app = new Vue(model);
+      app.$mount('#app');
+    </script>
+  </body>
+</html>
